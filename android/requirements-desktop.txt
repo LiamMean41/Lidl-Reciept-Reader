@@ -1,0 +1,9 @@
+# Desktop dependencies for TESTING the Android app on your PC (python main.py).
+# These are NOT used to build the APK (buildozer.spec handles that).
+kivy[base]==2.3.0
+kivymd==1.1.1
+plyer
+pillow
+# Optional: enables image OCR on desktop. Also needs the Tesseract binary
+# installed and on PATH. On the phone, ML Kit is used instead (no install).
+pytesseract
