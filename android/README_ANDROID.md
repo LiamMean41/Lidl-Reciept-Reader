@@ -95,6 +95,7 @@ is slow and can hit path issues — prefer `~`):
 ```bash
 cp -r "/mnt/c/Users/liam/Documents/Projects/Lidl Reciept Reader/android" ~/lidl-android
 cd ~/lidl-android
+cd android
 buildozer -v android debug
 ```
 

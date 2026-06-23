@@ -19,9 +19,11 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 1.0
 
 # (list) Application requirements
-# python3/kivy/kivymd = the app; pillow = image handling; pyjnius = call ML Kit;
-# plyer = camera + file picker; android = permissions API.
-requirements = python3,kivy==2.3.0,kivymd==1.1.1,pillow,pyjnius,plyer,android
+# python3/kivy/kivymd = the app; pyjnius = call ML Kit; plyer = camera + file
+# picker; android = permissions API. (Pillow intentionally omitted: it's only
+# used by the desktop OCR fallback; on Android OCR is ML Kit, so PIL isn't
+# needed and would add a fragile native build.)
+requirements = python3,kivy==2.3.0,kivymd==1.1.1,pyjnius,plyer,android
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -48,8 +50,8 @@ android.api = 34
 # (int) Minimum API your APK / AAB will support.
 android.minapi = 24
 
-# (str) Android NDK version to use
-#android.ndk = 25b
+# (str) Android NDK version to use. 25b matches the pinned p4a below.
+android.ndk = 25b
 
 # (list) The Android archs to build for.
 android.archs = arm64-v8a, armeabi-v7a
@@ -69,6 +71,12 @@ android.release_artifact = apk
 
 # (str) The format used to package the app for debug mode (apk or aar).
 android.debug_artifact = apk
+
+# (str) python-for-android branch/tag to use.
+# Pinned to the 2024.01.21 release, which builds Python 3.11. The p4a master
+# default (Python 3.14) does NOT compile Kivy 2.3.0 (private CPython C-API
+# functions like _PyLong_AsByteArray changed/were removed in 3.14).
+p4a.branch = 2024.01.21
 
 
 [buildozer]
