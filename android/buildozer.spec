@@ -76,7 +76,7 @@ android.debug_artifact = apk
 # Pinned to the 2024.01.21 release, which builds Python 3.11. The p4a master
 # default (Python 3.14) does NOT compile Kivy 2.3.0 (private CPython C-API
 # functions like _PyLong_AsByteArray changed/were removed in 3.14).
-p4a.branch = 2024.01.21
+p4a.branch = v2024.01.21
 
 
 [buildozer]
